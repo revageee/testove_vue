@@ -3,7 +3,7 @@
     <img :src="product.image" alt="Product Image" />
     <h2>{{ product.name }}</h2>
     <p>Ціна: {{ product.price }} грн</p>
-    <button @click.stop="buyProduct">Купити</button>
+    <button class="buy-button">Купити</button>
   </div>
 </template>
 
@@ -17,9 +17,6 @@ export default {
     viewDetail() {
       this.$emit('viewDetail', this.product);
     },
-    buyProduct() {
-      alert('Товар придбано!');
-    },
   },
 };
 </script>
@@ -30,5 +27,14 @@ export default {
   border: 1px solid #ccc;
   padding: 16px;
   margin: 8px;
+}
+.buy-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 </style>
