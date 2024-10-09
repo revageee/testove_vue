@@ -27,30 +27,32 @@ export default {
   },
   data() {
     return {
-      products: [
-        { id: 1, name: 'Товар 1', price: 100, date: '2024-10-01', image: 'path/to/image1.jpg' },
-        { id: 2, name: 'Товар 2', price: 200, date: '2024-10-02', image: 'path/to/image2.jpg' },
-        { id: 3, name: 'Товар 3', price: 150, date: '2024-10-03', image: 'path/to/image3.jpg' },
-      ],
+      products: [],
       sortOption: 'date',
     };
   },
-  computed: {
-    sortedProducts() {
-      return this.products.sort((a, b) => {
-        if (this.sortOption === 'date') {
-          return new Date(a.date) - new Date(b.date);
-        } else {
-          return a.price - b.price;
-        }
-      });
-    },
+  created() {
+    this.fetchProducts();
   },
   methods: {
+    fetchProducts() {
+      fetch('http://localhost:8000/api/products') // URL до API Laravel
+          .then(response => response.json())
+          .then(data => {
+            this.products = data.map(product => {
+              return {
+                ...product,
+                image: `http://localhost:8000/${product.image}` // Додаємо базовий URL для зображень
+              };
+            });
+          })
+          .catch(error => console.error('Error fetching products:', error));
+    },
     viewDetail(product) {
-      this.$router.push({ path: `/product/${product.id}` });
+      this.$router.push({path: `/product/${product.id}`});
     },
   },
+
 };
 </script>
 
