@@ -23,10 +23,12 @@ export default {
 
 <style>
 .product-card {
-  cursor: pointer;
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 70px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .buy-button {
   padding: 10px 20px;
