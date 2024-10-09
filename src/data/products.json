@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Телефон",
+    "price": 10000,
+    "date": "2024-01-10",
+    "description": "Новий смартфон з сучасними функціями.",
+    "image": "https://via.placeholder.com/150",
+    "category": "Електроніка"
+  },
+  {
+    "id": 2,
+    "name": "Ноутбук",
+    "price": 25000,
+    "date": "2024-01-15",
+    "description": "Потужний ноутбук для роботи і розваг.",
+    "image": "https://via.placeholder.com/150",
+    "category": "Електроніка"
+  }
+]
